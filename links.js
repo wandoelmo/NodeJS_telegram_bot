@@ -15,7 +15,7 @@ async function send_link(link, password = ''){
 
     await bot.unpinChatMessage(target_group);
     await bot.pinChatMessage(target_group, sended_message.message_id);
-
+    
 	if(password)
 		await bot.sendMessage(target_group, password, {parse_mode: 'MarkDown'});
 }
