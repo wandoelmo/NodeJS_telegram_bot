@@ -2,6 +2,8 @@ const TelegramBot = require('node-telegram-bot-api');
 const schedule = require('node-schedule');
 const config = require('./config.json');
 
+process.env.TZ = 'Europe/Kiev'; 
+
 const API_TOKEN = process.env.TELEGRAM_BOT_API_TOKEN;
 const bot = new TelegramBot(API_TOKEN, {polling: true});
 
