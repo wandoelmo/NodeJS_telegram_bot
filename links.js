@@ -43,5 +43,5 @@ schedule.scheduleJob('55 7 * * 5', () => send_link(config.chemistry));
 schedule.scheduleJob('15 11 * * 5', () => send_link(config.mathematics));
 // schedule.scheduleJob('45 12 * * 5', () => send_link(config.));
 
-// Test
+// Test every 5 seconds
 // schedule.scheduleJob('*/5 * * * * *', () => send_link(config.protection_of_ukraine, config.protection_of_ukraine_password));
