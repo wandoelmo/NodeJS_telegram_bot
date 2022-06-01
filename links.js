@@ -36,7 +36,7 @@ schedule.scheduleJob('15 11 * * 3', () => send_link(config.history));
 schedule.scheduleJob('45 12 * * 3', () => send_link(config.protection_of_ukraine, config.protection_of_ukraine_password));
 
 // Thursday
-schedule.scheduleJob('25 9 * * 4', () => send_link(config.physical_education));
+// schedule.scheduleJob('25 9 * * 4', () => send_link(config.physical_education));
 schedule.scheduleJob('15 11 * * 4', () => send_link(config.foreign_literature));
 schedule.scheduleJob('45 12 * * 4', () => send_link(config.economic_theory));
 
