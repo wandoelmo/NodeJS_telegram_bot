@@ -1,1 +1,1 @@
-links: node links.js
+idnex: node index.js
