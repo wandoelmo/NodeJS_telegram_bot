@@ -13,7 +13,7 @@ const TEST_GROUP_ID = -1001551171870;
 const MATH_GROUP_ID = -1001520763217;
 const TARGET_GROUP = MATH_GROUP_ID;
 
-bot.on("message", (message) => {
+bot.on("message", message => {
   if (message.chat.id === ALEX_CHAT_ID) {
     try {
       JSON.parse(message.text);
@@ -22,23 +22,19 @@ bot.on("message", (message) => {
     } catch (err) {
       bot.sendMessage(message.chat.id, "Parse error!");
     }
-  } else if (message.chat.type === 'private') {
+  } else if (message.chat.type === "private") {
     bot.sendMessage(ALEX_CHAT_ID, message.text);
   }
 });
 
-async function sendMessage(link, password = "") {
+async function sendMessage(link) {
   const sendedMessage = await bot.sendMessage(TARGET_GROUP, link, {
     parse_mode: "MarkDown",
   });
-
-  if (password) {
-    bot.sendMessage(TARGET_GROUP, password);
-  }
 }
 
 function check() {
-  const config = JSON.parse(fs.readFileSync("config.json", "utf-8"));
+  const config = JSON.parse(fs.readFile("config.json", "utf-8",));
 
   for (const [day] of Object.entries(config)) {
     for (const [time, link] of Object.entries(config[day])) {
