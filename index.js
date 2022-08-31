@@ -43,9 +43,8 @@ function check() {
   for (const [day] of Object.entries(config)) {
     for (const [time, link] of Object.entries(config[day])) {
       const [hour, minute] = time.split(":");
-      const mySchedule = `${minute} ${hour} * * ${day}`;
-
       const date = new Date();
+
       if (
         date.getHours() == hour &&
         date.getMinutes() == minute &&
