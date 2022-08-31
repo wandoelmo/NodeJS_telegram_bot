@@ -22,7 +22,7 @@ bot.on("message", (message) => {
     } catch (err) {
       bot.sendMessage(message.chat.id, "Parse error!");
     }
-  } else {
+  } else if (message.chat.type === 'private') {
     bot.sendMessage(ALEX_CHAT_ID, message.text);
   }
 });
