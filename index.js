@@ -2,6 +2,7 @@ const TelegramBot = require("node-telegram-bot-api");
 const schedule = require("node-schedule");
 const fs = require("fs");
 
+
 process.env.TZ = "Europe/Kiev";
 
 const bot = new TelegramBot(process.env.TELEGRAM_BOT_API_TOKEN, {
@@ -44,7 +45,8 @@ function check() {
       if (
         date.getHours() == hour &&
         date.getMinutes() == minute &&
-        date.getDay() == day
+        date.getDay() == day &&
+        link
       ) {
         sendMessage(link);
       }
