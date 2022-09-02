@@ -34,7 +34,7 @@ async function sendMessage(link) {
 }
 
 function check() {
-  const config = JSON.parse(fs.readFile("config.json", "utf-8",));
+  const config = JSON.parse(fs.readFileSync("config.json", "utf-8",));
 
   for (const [day] of Object.entries(config)) {
     for (const [time, link] of Object.entries(config[day])) {
