@@ -40,6 +40,7 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+.idea/
 
 # TypeScript v1 declaration files
 typings/
@@ -105,3 +106,5 @@ dist
 
 # .DS_Store
 .DS_Store
+
+config.json
