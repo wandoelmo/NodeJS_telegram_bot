@@ -1,1 +1,1 @@
-# Node.js-Telegram-Bot-002
+# First of all you need to add config.json to your project directory
