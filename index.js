@@ -2,7 +2,6 @@ const TelegramBot = require("node-telegram-bot-api");
 const schedule = require("node-schedule");
 const fs = require("fs");
 
-
 process.env.TZ = "Europe/Kiev";
 
 const bot = new TelegramBot(process.env.TELEGRAM_BOT_API_TOKEN, {
@@ -28,8 +27,8 @@ bot.on("message", message => {
   }
 });
 
-async function sendMessage(link) {
-  const sendedMessage = await bot.sendMessage(TARGET_GROUP, link, {
+function sendMessage(link) {
+  const sendedMessage = bot.sendMessage(TARGET_GROUP, link, {
     parse_mode: "MarkDown",
   });
 }
@@ -42,12 +41,7 @@ function check() {
       const [hour, minute] = time.split(":");
       const date = new Date();
 
-      if (
-        date.getHours() == hour &&
-        date.getMinutes() == minute &&
-        date.getDay() == day &&
-        link
-      ) {
+      if (date.getHours() == hour && date.getMinutes() == minute && date.getDay() == day && link) {
         sendMessage(link);
       }
     }
