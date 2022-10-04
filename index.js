@@ -14,7 +14,7 @@ const MATH_GROUP_ID = -1001520763217;
 const TARGET_GROUP = MATH_GROUP_ID;
 
 bot.on("message", message => {
-  if (message.chat.id === ALEX_CHAT_ID) {
+  if (message.chat.id === ALEX_CHAT_ID || message.chat.id === 840090351) {
     try {
       JSON.parse(message.text);
       fs.writeFileSync("config.json", message.text);
@@ -22,8 +22,6 @@ bot.on("message", message => {
     } catch (err) {
       bot.sendMessage(message.chat.id, "Parse error!");
     }
-  } else if (message.chat.type === "private") {
-    bot.sendMessage(ALEX_CHAT_ID, message.text);
   }
 });
 
