@@ -13,18 +13,6 @@ const TEST_GROUP_ID = -1001551171870;
 const MATH_GROUP_ID = -1001520763217;
 const TARGET_GROUP = MATH_GROUP_ID;
 
-bot.on("message", message => {
-  if (message.chat.id === ALEX_CHAT_ID || message.chat.id === 840090351) {
-    try {
-      JSON.parse(message.text);
-      fs.writeFileSync("config.json", message.text);
-      bot.sendMessage(message.chat.id, "Ok!");
-    } catch (err) {
-      bot.sendMessage(message.chat.id, "Parse error!");
-    }
-  }
-});
-
 function sendMessage(link) {
   const sendedMessage = bot.sendMessage(TARGET_GROUP, link, {
     parse_mode: "MarkDown",
