@@ -19,14 +19,14 @@ function sendMessage(link) {
 }
 
 function check() {
-  const config = JSON.parse(fs.readFileSync("config.json", "utf-8",));
+  const config = JSON.parse(fs.readFileSync("config.json", "utf-8"));
 
-  for (const [day] of Object.entries(config)) {
-    for (const [time, link] of Object.entries(config[day])) {
+  for (const [day, schedule] of Object.entries(config)) {
+    for (const [time, link] of Object.entries(schedule)) {
       const [hour, minute] = time.split(":");
       const date = new Date();
 
-      if (date.getHours() == hour && date.getMinutes() == minute && date.getDay() == day && link) {
+      if (date.getHours() === +hour && date.getMinutes() === +minute && date.getDay() === +day && link) {
         sendMessage(link);
       }
     }
