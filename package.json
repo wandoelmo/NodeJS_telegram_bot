@@ -1,7 +1,25 @@
 {
+  "name": "nodejs_telegram_bot",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
   "dependencies": {
     "node-fetch": "^2.6.7",
     "node-schedule": "^2.1.0",
     "node-telegram-bot-api": "^0.57.0"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexMercer324110/NodeJS_telegram_bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexMercer324110/NodeJS_telegram_bot/issues"
+  },
+  "homepage": "https://github.com/AlexMercer324110/NodeJS_telegram_bot#readme"
 }
