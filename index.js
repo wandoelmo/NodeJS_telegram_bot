@@ -8,7 +8,6 @@ const bot = new TelegramBot(process.env.TELEGRAM_BOT_API_TOKEN, {
   polling: true,
 });
 
-const ALEX_CHAT_ID = 961384484;
 const MATH_GROUP_ID = -1001520763217;
 const TARGET_GROUP = MATH_GROUP_ID;
 
