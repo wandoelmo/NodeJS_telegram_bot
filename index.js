@@ -18,7 +18,7 @@ function sendMessage(link) {
 }
 
 function check() {
-  fetch('https://raw.githubusercontent.com/AlexMercer324110/NodeJS_telegram_bot/master/config.json')
+  fetch('https://raw.githubusercontent.com/AlexMercer324110/NodeJS_telegram_bot/master/config.json', {cache: 'no-cache'})
     .then(res => res.json())
     .then(json => {
       for (const [day, schedule] of Object.entries(json)) {
@@ -34,4 +34,4 @@ function check() {
     })
 }
 
-schedule.scheduleJob("50 * * * * *", check);
+schedule.scheduleJob("1 * * * * *", check);
