@@ -19,13 +19,14 @@ setInterval(async () => {
   const json = await fetchSchedule()
 
   for (const [day, schedule] of Object.entries(json)) {
-    for (const [time, link] of Object.entries(schedule)) {
+    for (const [time, message] of Object.entries(schedule)) {
       const [hour, minute] = time.split(":")
       const date = new Date()
 
-      if (date.getHours() === +hour && date.getMinutes() === +minute && date.getDay() === +day && link) {
-        bot.sendMessage(math_group_id, link)
-        bot.sendMessage(nbk_group_id, link)
+      if (date.getHours() === +hour && date.getMinutes() === +minute && date.getDay() === +day && message) {
+        bot.sendMessage(math_group_id, message)
+        bot.sendMessage(nbk_group_id, message)
+        console.log(message)
       }
     }
   }
