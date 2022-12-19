@@ -29,6 +29,6 @@ setInterval(async () => {
       }
     }
   }
-}, 1000)
+}, 1000 * 60)
 
 console.log('Bomb has been planted')
