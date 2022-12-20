@@ -1,6 +1,5 @@
 import TelegramBot from 'node-telegram-bot-api'
 import fetch from 'node-fetch'
-import some adfsfal
 
 process.env.TZ = "Europe/Kiev"
 
