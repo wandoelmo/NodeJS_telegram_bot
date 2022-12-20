@@ -1,1 +1,1 @@
-# Telegram bot that sends links to zoom conferences
+# Telegram bot that sends links to Zoom conferences
