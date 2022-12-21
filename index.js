@@ -10,7 +10,7 @@ const bot = new TelegramBot(process.env.TELEGRAM_BOT_API_TOKEN, {
 const math_group_id = -1001520763217
 
 const fetchSchedule = async () => {
-  const res = await fetch('https://raw.githubusercontent.com/AlexMercer324110/NodeJS_telegram_bot/master/config.json', {cache: 'no-cache'})
+  const res = await fetch('https://raw.githubusercontent.com/oleksandrh324110/NodeJS_telegram_bot/master/config.json', {cache: 'no-cache'})
   return await res.json()
 }
 
