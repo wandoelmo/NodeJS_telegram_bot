@@ -1,18 +1,9 @@
-import TelegramBot from 'node-telegram-bot-api'
-import fetch from 'node-fetch'
+import { fetchSchedule, fetchUesrs } from "./fetch.js";
 
+// basic config
 process.env.TZ = "Europe/Kiev"
 
-const bot = new TelegramBot(process.env.TELEGRAM_BOT_API_TOKEN, {
-  polling: true,
-})
-
-const math_group_id = -1001520763217
-
-const fetchSchedule = async () => {
-  const res = await fetch('https://raw.githubusercontent.com/oleksandrh324110/NodeJS_telegram_bot/master/config.json', {cache: 'no-cache'})
-  return await res.json()
-}
+console.log(await fetchUesrs())
 
 setInterval(async () => {
   const json = await fetchSchedule()
@@ -23,11 +14,12 @@ setInterval(async () => {
       const date = new Date()
 
       if (date.getHours() === +hour && date.getMinutes() === +minute && date.getDay() === +day && message) {
-        bot.sendMessage(math_group_id, message)
+        // const users = await fetchUesrs()
+
         console.log('\n', message, '\n')
       }
     }
   }
 }, 1000 * 60)
 
-console.log('Bomb has been planted')
+console.log('Bot has been started')
