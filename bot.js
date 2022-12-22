@@ -21,8 +21,8 @@ bot.on('message', async msg => {
         all += `<a href="tg://user?id=${user_id}">.</a>`
       }
 
-      await bot.deleteMessage(msg.chat.id, msg.message_id)
-      await bot.sendMessage(msg.chat.id, msg.text.replace('@all', all), {parse_mode: 'HTML'})
+      await bot.deleteMessage(msg.chat.id, msg.message_id).catch(() => {})
+      await bot.sendMessage(msg.chat.id, msg.text.replace('@all', all), {parse_mode: 'HTML'}).catch(() => {})
     }
   } else if (msg.chat.type === 'private') {
     if (msg.text !== '/start') {

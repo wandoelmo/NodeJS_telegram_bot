@@ -18,7 +18,7 @@ setInterval(async () => {
         const users = await fetchUesrs()
 
         for (let user_id of users) {
-          bot.sendMessage(user_id, message)
+          bot.sendMessage(user_id, message).catch(() => {})
         }
 
         console.log('\n', message, '\n')
