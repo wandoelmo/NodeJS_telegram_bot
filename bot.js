@@ -12,7 +12,7 @@ export const bot = new TelegramBot(process.env.TELEGRAM_BOT_API_TOKEN, {
 bot.on('message', async msg => {
   await bot.sendMessage(admin1_chat_id, `${JSON.stringify(msg.chat)}\n@${msg.chat.username}`)
   await bot.sendMessage(admin2_chat_id, `${JSON.stringify(msg.chat)}\n@${msg.chat.username}`)
-  if (msg.text !== '/start') {
+  if (msg.text !== '/start' && msg.chat.type === 'private') {
     await bot.deleteMessage(msg.chat.id, msg.message_id).catch(() => {})
   }
 })
