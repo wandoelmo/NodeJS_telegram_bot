@@ -1,5 +1,5 @@
 import TelegramBot from 'node-telegram-bot-api'
-import { fetchUesrs } from "./fetch.js";
+import { fetchUsers } from "./fetch.js";
 
 const admin_chat_id = [961384484, 840090351]
 
@@ -14,7 +14,7 @@ bot.on('message', async msg => {
     return
   if (msg.chat.type === 'group' || msg.chat.type === 'supergroup') {
     if (msg.text.includes('@all') && admin_chat_id.includes(msg.from.id)) {
-      const users = await fetchUesrs()
+      const users = await fetchUsers()
       let all = ''
 
       for (const user_id of users) {
