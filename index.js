@@ -1,4 +1,4 @@
-import { fetchSchedule, fetchUesrs } from "./fetch.js";
+import { fetchSchedule, fetchUsers } from "./fetch.js";
 import { bot } from "./bot.js";
 
 // set timezone manually
@@ -13,7 +13,7 @@ setInterval(async () => {
       const date = new Date()
 
       if (date.getHours() === +hour && date.getMinutes() === +minute && date.getDay() === +day && message) {
-        const users = await fetchUesrs()
+        const users = await fetchUsers()
 
         for (let user_id of users) {
           bot.sendMessage(user_id, message).catch(() => {})

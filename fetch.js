@@ -9,7 +9,7 @@ export const fetchSchedule = async () => {
   return await res.json()
 }
 
-export const fetchUesrs = async () => {
+export const fetchUsers = async () => {
   const usersUrl = 'https://raw.githubusercontent.com/oleksandrh324110/NodeJS_telegram_bot/master/users.json'
 
   const res = await fetch(usersUrl, {cache: 'no-cache'})
