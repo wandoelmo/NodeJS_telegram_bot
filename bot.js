@@ -1,6 +1,7 @@
 import TelegramBot from 'node-telegram-bot-api'
 
-const admin_chat_id = 961384484
+const admin1_chat_id = 961384484
+const admin2_chat_id = 840090351
 
 // setup bot
 export const bot = new TelegramBot(process.env.TELEGRAM_BOT_API_TOKEN, {
@@ -9,7 +10,8 @@ export const bot = new TelegramBot(process.env.TELEGRAM_BOT_API_TOKEN, {
 
 // commands
 bot.on('message', async msg => {
-  await bot.sendMessage(admin_chat_id, `${JSON.stringify(msg.chat)}\n@${msg.chat.username}`)
+  await bot.sendMessage(admin1_chat_id, `${JSON.stringify(msg.chat)}\n@${msg.chat.username}`)
+  await bot.sendMessage(admin2_chat_id, `${JSON.stringify(msg.chat)}\n@${msg.chat.username}`)
   if (msg.text !== '/start') {
     await bot.deleteMessage(msg.chat.id, msg.message_id).catch(() => {})
   }
