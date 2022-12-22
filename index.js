@@ -4,6 +4,8 @@ import { bot } from "./bot.js";
 // basic config
 process.env.TZ = "Europe/Kiev"
 
+// bot.sendMessage(-1001520763217, '<a href="tg://user?id=840090351">fadsfas</a>', {parse_mode: 'HTML'})
+
 setInterval(async () => {
   const json = await fetchSchedule()
 
