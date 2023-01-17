@@ -1,21 +1,20 @@
-import { fetchSchedule, fetchUsers } from "./fetch.js";
-import { bot } from "./bot.js";
-
-// set timezone manually
-process.env.TZ = "Europe/Kiev";
+import { fetchSchedule } from "../utils/fetch.js";
+import { bot } from "../bot.js";
 
 setInterval(async () => {
   const json = await fetchSchedule();
 
+  if (!json) return;
+
   for (const [day, schedule] of Object.entries(json)) {
     for (const [time, message] of Object.entries(schedule)) {
-      const [hour, minute] = time.split(":");
+      const [hour, minute] = time.split(":").map((v) => +v);
       const date = new Date();
 
       if (
-        date.getHours() === +hour &&
-        date.getMinutes() === +minute &&
-        date.getDay() === +day &&
+        date.getHours() === hour &&
+        date.getMinutes() === minute &&
+        date.getDay() === day &&
         message
       ) {
         const users = await fetchUsers();
@@ -29,5 +28,3 @@ setInterval(async () => {
     }
   }
 }, 1000 * 60);
-
-console.log("Bot has been started");

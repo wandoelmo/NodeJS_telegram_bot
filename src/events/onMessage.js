@@ -1,14 +1,5 @@
-import TelegramBot from "node-telegram-bot-api";
-import { fetchUsers } from "./fetch.js";
+import { bot } from "../bot.js";
 
-const admin_chat_id = [961384484, 840090351];
-
-// setup bot
-export const bot = new TelegramBot(process.env.TELEGRAM_BOT_API_TOKEN, {
-  polling: true,
-});
-
-// commands
 bot.on("message", async (msg) => {
   if (!msg.text) return;
   if (msg.chat.type === "group" || msg.chat.type === "supergroup") {
