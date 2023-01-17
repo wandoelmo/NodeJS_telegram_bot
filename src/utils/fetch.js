@@ -5,7 +5,7 @@ export const fetchSchedule = async () => {
     "https://raw.githubusercontent.com/oleksandrh324110/NodeJS_telegram_bot/master/schedule.json";
 
   const res = await fetch(scheduleUrl, { cache: "no=cache" });
-  return await res.json().catch(console.error);
+  return (await res.json().catch(console.error)) ?? [];
 };
 
 export const fetchUsers = async () => {
@@ -13,5 +13,5 @@ export const fetchUsers = async () => {
     "https://raw.githubusercontent.com/oleksandrh324110/NodeJS_telegram_bot/master/users.json";
 
   const res = await fetch(usersUrl, { cache: "no-cache" });
-  return await res.json().catch(console.error);
+  return (await res.json().catch(console.error)) ?? [];
 };

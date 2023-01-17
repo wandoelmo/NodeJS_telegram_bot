@@ -1,4 +1,5 @@
 import { fetchSchedule } from "../utils/fetch.js";
+import { fetchUsers } from "../utils/fetch.js";
 import { bot } from "../bot.js";
 
 setInterval(async () => {
