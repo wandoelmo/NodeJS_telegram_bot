@@ -11,6 +11,10 @@ setInterval(async () => {
       const [hour, minute] = time.split(':').map((v) => +v)
       const date = new Date()
 
+      const [link, book] = message?.split('|')
+
+      if (book?.trim()) var [from_user_id, message_id] = book.split('->')
+
       if (
         date.getHours() === hour &&
         date.getMinutes() === minute &&
@@ -18,10 +22,14 @@ setInterval(async () => {
         message
       ) {
         for (let user_id of await fetchUsers()) {
-          bot.sendMessage(user_id, message).catch(console.error)
+          await bot
+            .sendMessage(user_id, link, { disable_web_page_preview: true })
+            .catch(console.error)
+          if (book?.trim())
+            bot
+              .forwardMessage(user_id, from_user_id, message_id)
+              .catch(console.error)
         }
-
-        console.log('\n', message, '\n')
       }
     }
   }
